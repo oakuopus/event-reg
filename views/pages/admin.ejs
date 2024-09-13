@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../partials/head"); %>
+    <title>Admin</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Add Event</legend>
+        <input type="text" id="event" name="event">
+        <br>
+        <input type="text" id="date" name="date">
+        <br>
+        <input type="textbox" id="desc" name="desc">
+        <button id="submit">Submit</button>
+    </fieldset>
+    <script>
+        var fs = require("fs")
+        const {writeFileSync, readFileSync} = fs
+        var button = document.getElementById("submit")
+        button.addEventListener("click", function(){
+            var event = document.getElementById("event").value
+            var date = document.getElementById("date").value
+            var description = document.getElementById("desc").value
+        })
+        writeFileSync("./data/events.txt", `Event: ${event}, Date: ${date}, Description: ${description}!`, {flag:"a"})
+    </script>
+</body>
+</html>
